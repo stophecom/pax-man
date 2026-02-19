@@ -1,3 +1,12 @@
+@font-face { font-family: 'Pax Civil'; src: url('fonts/PaxCivil-Regular.woff2') format('woff2'); font-weight: 400; font-style: normal; }
+@font-face { font-family: 'Pax Civil'; src: url('fonts/PaxCivil-RegularItalic.woff2') format('woff2'); font-weight: 400; font-style: italic; }
+@font-face { font-family: 'Pax Civil'; src: url('fonts/PaxCivil-Medium.woff2') format('woff2'); font-weight: 500; font-style: normal; }
+@font-face { font-family: 'Pax Civil'; src: url('fonts/PaxCivil-MediumItalic.woff2') format('woff2'); font-weight: 500; font-style: italic; }
+@font-face { font-family: 'Pax Civil'; src: url('fonts/PaxCivil-SemiBold.woff2') format('woff2'); font-weight: 600; font-style: normal; }
+@font-face { font-family: 'Pax Civil'; src: url('fonts/PaxCivil-SemiBoldItalic.woff2') format('woff2'); font-weight: 600; font-style: italic; }
+@font-face { font-family: 'Pax Civil'; src: url('fonts/PaxCivil-Bold.woff2') format('woff2'); font-weight: 700; font-style: normal; }
+@font-face { font-family: 'Pax Civil'; src: url('fonts/PaxCivil-BoldItalic.woff2') format('woff2'); font-weight: 700; font-style: italic; }
+
 * {
     margin: 0;
     padding: 0;
@@ -16,7 +25,7 @@
 
 body {
     background: var(--pax-purple-dark);
-    font-family: 'Space Grotesk', system-ui, sans-serif;
+    font-family: 'Pax Civil', system-ui, sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -133,10 +142,11 @@ body {
 }
 
 #overlay-btn {
-    font-family: 'Space Grotesk', system-ui, sans-serif;
+    font-family: 'Pax Civil', system-ui, sans-serif;
     font-size: 18px;
     font-weight: 700;
-    letter-spacing: 4px;
+    letter-spacing: 1px;
+    text-transform: none;
     padding: 14px 48px;
     border: none;
     border-radius: 50px;

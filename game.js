@@ -419,7 +419,7 @@
             // Check win
             if (dotsEaten >= totalDots) {
                 gameState = "won";
-                showOverlay("YOU WIN!", "All dots collected! Score: " + score, "PLAY AGAIN");
+                showOverlay("You win!", "All dots collected! Score: " + score, "Play again");
                 return;
             }
 
@@ -596,7 +596,7 @@
                 highScore = score;
                 localStorage.setItem("paxman-high", String(highScore));
             }
-            showOverlay("GAME OVER", "Final score: " + score, "TRY AGAIN");
+            showOverlay("Game over", "Final score: " + score, "Try again");
             return;
         }
         resetPositions();
@@ -779,5 +779,5 @@
     ctx.fillRect(0, 0, WIDTH, HEIGHT);
     drawMaze();
 
-    showOverlay("PAX MAN", "Collect all dots. Avoid the ghosts!", "START");
+    showOverlay("Pax-Man", "Collect all dots. Avoid the ghosts!", "Start");
 })();
