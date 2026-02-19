@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-PAX MAN is a browser-based Pac-Man clone styled with PAX brand colors (purple and neon green). It's a vanilla HTML/CSS/JavaScript project with zero dependencies and no build system.
+Pax-Man is a browser-based Pac-Man clone styled with Pax brand colors (purple and neon green). It's a vanilla HTML/CSS/JavaScript project with zero dependencies and no build system.
 
 ## Running the Game
 
