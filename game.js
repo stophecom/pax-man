@@ -469,7 +469,7 @@
     function chooseDirection(ghost, target) {
         const dirs = [DIR.UP, DIR.LEFT, DIR.DOWN, DIR.RIGHT];
         const opposite = getOpposite(ghost.dir);
-        let bestDir = ghost.dir;
+        let bestDir = null;
         let bestDist = Infinity;
 
         for (const d of dirs) {
@@ -477,7 +477,6 @@
             const nx = ghost.x + d.x;
             const ny = ghost.y + d.y;
             const wnx = nx < 0 ? COLS - 1 : nx >= COLS ? 0 : nx;
-            const isGhost = ghost.mode !== "eaten";
             if (!isWalkable(wnx, ny, true, ghost.mode === "eaten")) continue;
             if (tileAt(wnx, ny) === 4 && ghost.mode !== "leaving" && ghost.mode !== "eaten") {
                 // Only allow going through gate when leaving house or eaten
@@ -489,7 +488,8 @@
                 bestDir = d;
             }
         }
-        return bestDir;
+        // Dead end: reverse rather than walk through a wall
+        return bestDir !== null ? bestDir : opposite;
     }
 
     function moveGhost(ghost, dt) {
