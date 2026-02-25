@@ -225,9 +225,8 @@
                     ctx.fillStyle = COLORS.powerDot;
                     const pulse = 0.6 + 0.4 * Math.sin(animFrame * 0.08);
                     ctx.globalAlpha = pulse;
-                    ctx.beginPath();
-                    ctx.arc(x + TILE / 2, y + TILE / 2, 6, 0, Math.PI * 2);
-                    ctx.fill();
+                    const sz = 12;
+                    ctx.fillRect(x + TILE / 2 - sz / 2, y + TILE / 2 - sz / 2, sz, sz);
                     ctx.globalAlpha = 1;
                 } else if (t === 4) {
                     ctx.fillStyle = COLORS.gate;
