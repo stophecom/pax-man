@@ -225,9 +225,8 @@
                     ctx.fillStyle = COLORS.powerDot;
                     const pulse = 0.6 + 0.4 * Math.sin(animFrame * 0.08);
                     ctx.globalAlpha = pulse;
-                    ctx.beginPath();
-                    ctx.arc(x + TILE / 2, y + TILE / 2, 6, 0, Math.PI * 2);
-                    ctx.fill();
+                    const sz = 12;
+                    ctx.fillRect(x + TILE / 2 - sz / 2, y + TILE / 2 - sz / 2, sz, sz);
                     ctx.globalAlpha = 1;
                 } else if (t === 4) {
                     ctx.fillStyle = COLORS.gate;
@@ -469,7 +468,7 @@
     function chooseDirection(ghost, target) {
         const dirs = [DIR.UP, DIR.LEFT, DIR.DOWN, DIR.RIGHT];
         const opposite = getOpposite(ghost.dir);
-        let bestDir = ghost.dir;
+        let bestDir = null;
         let bestDist = Infinity;
 
         for (const d of dirs) {
@@ -477,7 +476,6 @@
             const nx = ghost.x + d.x;
             const ny = ghost.y + d.y;
             const wnx = nx < 0 ? COLS - 1 : nx >= COLS ? 0 : nx;
-            const isGhost = ghost.mode !== "eaten";
             if (!isWalkable(wnx, ny, true, ghost.mode === "eaten")) continue;
             if (tileAt(wnx, ny) === 4 && ghost.mode !== "leaving" && ghost.mode !== "eaten") {
                 // Only allow going through gate when leaving house or eaten
@@ -489,7 +487,8 @@
                 bestDir = d;
             }
         }
-        return bestDir;
+        // Dead end: reverse rather than walk through a wall
+        return bestDir !== null ? bestDir : opposite;
     }
 
     function moveGhost(ghost, dt) {
