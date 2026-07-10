@@ -218,9 +218,7 @@
                     drawWallTile(c, r, x, y);
                 } else if (t === 2) {
                     ctx.fillStyle = COLORS.dot;
-                    ctx.beginPath();
-                    ctx.arc(x + TILE / 2, y + TILE / 2, 2, 0, Math.PI * 2);
-                    ctx.fill();
+                    ctx.fillRect(x + TILE / 2 - 2, y + TILE / 2 - 2, 4, 4);
                 } else if (t === 3) {
                     ctx.fillStyle = COLORS.powerDot;
                     const pulse = 0.6 + 0.4 * Math.sin(animFrame * 0.08);
